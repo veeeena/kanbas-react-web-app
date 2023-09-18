@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+</head>
+<body>
+    <table width="100%">
+        <tr>
+            <td valign="top">
+                <ul>
+                    <li> <a href="#"> Account </a> </li>
+                    <li> <a href="#"> Dashboard </a> </li>
+                    <li> <a href="#"> Courses </a> </li>
+                    <li> <a href="#"> Calendar </a> </li>
+                    <li> <a href="#"> Inbox </a> </li>
+                    <li> <a href="#"> History </a> </li>
+                    <li> <a href="#"> Studio </a> </li>
+                    <li> <a href="#"> Commons </a> </li>
+                    <li> <a href="#"> Help </a> </li>
+                </ul>
+            </td>
+            <td valign="top">
+                <ul>
+                    <li> <a href="#"> Home </a> </li>
+                    <li> <a href="#"> Modules </a> </li>
+                    <li> <a href="#"> Piazza </a> </li>
+                    <li> <a href="#"> Zoom Meetings </a> </li>
+                    <li> <a href="#"> Assignments </a> </li>
+                    <li> <a href="#"> Quizzes </a> </li>
+                    <li> <a href="#"> Grades </a> </li>
+                    <li> <a href="#"> People </a> </li>
+                    <li> <a href="#"> Panopto Video </a> </li>
+                    <li> <a href="#"> Discussions </a> </li>
+                    <li> <a href="#"> Annoucements </a> </li>
+                    <li> <a href="#"> Pages </a> </li>
+                    <li> <a href="#"> Files </a> </li>
+                    <li> <a href="#"> Rubrics </a> </li>
+                    <li> <a href="#"> Outcomes </a> </li>
+                    <li> <a href="#"> Collaborations </a> </li>
+                    <li> <a href="#"> Syllabus </a> </li>
+                    <li> <a href="#"> Settings </a> </li>
+                </ul>
+            </td>
+            <td valign="top">
+                <select id="select-gradebook">
+                    <option value="gradebook"> Gradebook </option>
+                 </select>
+                <button type="button"> Import </button>
+                <select id="export">
+                    <option value="export"> Export </option>
+                </select>
+                <button type="button"> Configure </button>
+                <form>
+                    <h2> Student Names </h2>
+                    <input type="text" id="search-students"
+                    placeholder="Search Students" />
+                    <h2> Assignment Names </h2>
+                    <input type="text" id="search-assignments"
+                    placeholder="Search Assignments" />
+                </form> <br />
+                <div> 
+                    <button type="button"> Apply Filters </button>
+                </div>
+                <br />
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>A1 SETUP Out of 100</th>
+                            <th>A2 HTML Out of 100</th>
+                            <th>A3 CSS Out of 100</th>
+                            <th>A4 BOOTSTRAP Out of 100</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> John Smith </td>
+                            <td> 100 </td>
+                            <td> 100 </td>
+                            <td> 100 </td>
+                            <td> <input type="number" value="83"/>  </td>
+                        </tr>
+                        <tr>
+                            <td> Jessie James </td>
+                            <td> <input type="number" value="36"/>  </td>
+                            <td> 100 </td>
+                            <td> 2 </td>
+                            <td> 100 </td>
+                        </tr>
+                        <tr>
+                            <td> Micheal Ticheal </td>
+                            <td> 100 </td>
+                            <td> 95 </td>
+                            <td> <input type="number" value="100"/>  </td>
+                            <td> 80 </td>
+                        </tr>
+                        <tr>
+                            <td> Timmy Turner </td>
+                            <td> <input type="number" value="65"/>  </td>
+                            <td> 60 </td>
+                            <td> 75 </td>
+                            <td> 60 </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
