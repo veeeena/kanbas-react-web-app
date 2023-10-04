@@ -1,64 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
-   <meta charset="UTF-8">
-   <title>Title</title>
+    <link href="../sidebar.css" rel="stylesheet"/>
+    <link href="../link-list.css" rel="stylesheet"/>
+    <link href="../home.css" rel="stylesheet"/>
+    <link href="index.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    rel="stylesheet"
+    />
 </head>
-<body>
-    <table width="100%">
-        <tr>
-            <td valign="top">
-                <ul>
-                    <li> <a href="../account.html"> Account </a> </li>
-                    <li> <a href="#"> Dashboard </a> </li>
-                    <li> <a href="../course-menu.html"> Courses </a> </li>
-                    <li> <a href="#"> Calendar </a> </li>
-                    <li> <a href="#"> Inbox </a> </li>
-                    <li> <a href="#"> History </a> </li>
-                    <li> <a href="#"> Studio </a> </li>
-                    <li> <a href="#"> Commons </a> </li>
-                    <li> <a href="#"> Help </a> </li>
-                </ul>
-            </td>
-            <td valign="top">
-                <ul>
-                    <li> <a href="#"> Notifications </a> </li>
-                    <li> <a href="index.html"> Profile </a> </li>
-                    <li> <a href="#"> Files </a> </li>
-                    <li> <a href="#"> Settings </a> </li>
-                    <li> <a href="#"> ePortfolip </a> </li>
-                    <li> <a href="#"> Shared Content </a> </li>
-                    <li> <a href="#"> The Hub </a> </li>
-                    <li> <a href="#"> Qwickly Course Tools </a> </li>
-                    <li> <a href="#"> Global Announcements </a> </li>
-                </ul>
-            </td>
-            <td valign="top">
-                <h3> Jose Annunziato's Profile </h3>
-                <hr />
-                <table width="100%">
-                    <tr>
-                        <td>
-                            <h2> Jose Annunziato </h2>
-                            <h3> Contact </h3>
-                            <p> No registered services. You can add some on the <a href="#">settings</a> page. </p>
-                            <h3> Biography </h3>
-                            <p> Faculty, Software Engineer, AI, Space, and renewables enthusiast. </p>
-                            <h3> Links </h3>
-                            <a href="#"> YouTube </a>            
-                        </td>
-                        <td valign="top">
-                            <a href="edit.html"> 
-                                <button type="button"> 
-                                    <img src="edit_icon.png" height="12px"/>
+<body class="h-100">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="sidebar-col col-1 p-0 m-0 justify-content-center text-center d-inline align-items-center align-top bg-black">
+                <img src="../northeastern.png" class="w-75 my-1"/>
+                <div class="active w-100 text-center justify-content-center mb-1 p-0">
+                    <a class="p-2" href="../profile/index.html">
+                        <i class="fa-solid fa-user fa-xl"></i>
+                        <p class="p-0 m-0"> Account </p>    
+                    </a>
+                </div>
+                <div class="group w-100 text-center justify-content-center mb-1 p-0">
+                    <a href="../dashboard.html">
+                        <i class="fa-solid fa-gauge fa-xl sidebar-icon"></i>                    
+                        <p class=""> Dashboard </p>    
+                    </a>
+                </div>
+                <div class="group w-100 text-center justify-content-center mb-1 p-0">
+                    <a href="../course-menu.html">
+                        <i class="fa-solid fa-book fa-xl sidebar-icon"></i>
+                        <p class=""> Courses </p>    
+                    </a>
+                </div>
+                <div class="group w-100 text-center justify-content-center mb-1 p-0">
+                    <a href="#">
+                        <i class="fa-regular fa-calendar fa-xl sidebar-icon"></i>
+                        <p class=""> Calendar </p>    
+                    </a>
+                </div>
+                <div class="group w-100 text-center justify-content-center mb-1 p-0">
+                    <a href="#">
+                        <i class="fa-solid fa-inbox fa-xl sidebar-icon"></i>
+                        <p class=""> Inbox </p>    
+                    </a>
+                </div>
+                <div class="group w-100 text-center justify-content-center mb-1 p-0">
+                    <a href="#">
+                        <i class="fa-solid fa-clock fa-xl sidebar-icon"></i>
+                        <p class=""> History </p>    
+                    </a>
+                </div>
+                <div class="group w-100 text-center justify-content-center mb-1 p-0">
+                    <a href="#">
+                        <i class="fa-solid fa-tv fa-xl sidebar-icon"></i>
+                        <p class=""> Studio </p>    
+                    </a>
+                </div>
+                <div class="group w-100 text-center justify-content-center mb-1 p-0">
+                    <a href="#">
+                        <i class="fa-solid fa-c fa-xl sidebar-icon"></i>
+                        <p class=""> Commons </p>    
+                    </a>
+                </div>
+                <div class="group w-100 text-center justify-content-center mb-1 p-0">
+                    <a href="#">
+                        <i class="fa-regular fa-circle-question fa-xl sidebar-icon"></i>
+                        <p class=""> Help </p>    
+                    </a>
+                </div>
+            </div>
+            <div class="col-11">
+                <div class="row mt-2">
+                    <div class="page-header">
+                        <div class="page-header">
+                            <i class="fa-solid fa-bars fa-lg sandwich text-danger"></i>
+                            <nav class="header-text">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item active"> <p class="text-black">Jose Annunziato's Profile </p></li>
+                                </ol>
+                            </nav>
+                            <hr class="page-header-line mt-1"/>
+                        </div>    
+                    </div>
+                </div>                      
+                <div class="row">
+                    <div class="link-list col-2">
+                        <ul>
+                            <li> <a href="#"> Notifications </a> </li>
+                            <li class="active-link"> <a href="index.html"> Profile </a> </li>
+                            <li> <a href="#"> Files </a> </li>
+                            <li> <a href="#"> Settings </a> </li>
+                            <li> <a href="#"> ePortfolio </a> </li>
+                            <li> <a href="#"> Shared Content </a> </li>
+                            <li> <a href="#"> The Hub </a> </li>
+                            <li> <a href="#"> Qwickly Course Tools </a> </li>
+                            <li> <a href="#"> Global Announcements </a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="profile-content col-10">
+                                <i class="fa fa-user fa-5x"></i>
+                                <h2 class="mb-3"> Jose Annunziato </h2>
+                                <h3> Contact </h3>
+                                <p> No registered services. You can add some on the <a href="#">settings</a> page. </p>
+                                <h3> Biography </h3>
+                                <p> Faculty, Software Engineer, AI, Space, and renewables enthusiast. </p>
+                                <h3> Links </h3>
+                                <a href="#"> 
+                                    <i class="fa-solid fa-link"></i>
+                                    YouTube 
+                                </a>            
+                                
+                            </div>
+                            <div class="edit-profile-button float-end col-2">
+                                <a class="btn btn-secondary" style="background-color: lightgray; color: black;" href="edit.html" role="button">
+                                    <i class="fa-solid fa-pencil"></i>
                                     Edit Profile
-                                </button>
-                            </a>
-                        </td>                
-                    </tr>                  
-                </table>
-                <br />            
-            </td>
-        </tr>
-    </table>
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>

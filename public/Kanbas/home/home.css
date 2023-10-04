@@ -1,0 +1,9 @@
+.page-header-line {
+    position: relative;
+    bottom: 25px;
+}
+
+.header-text {
+    font-size: 18px;
+    display: inline-block;
+}

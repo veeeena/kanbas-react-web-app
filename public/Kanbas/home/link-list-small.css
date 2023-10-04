@@ -1,0 +1,32 @@
+.canvas-color {
+    color: #C81829;
+}
+
+ul {
+    display: contents;
+}
+
+li { 
+    list-style-type: none;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.link-list a { text-decoration: none; color: #C81829 }
+.link-list a:link { text-decoration: none; color: #C81829}
+.link-list a:visited { text-decoration: none; color: #C81829}
+.link-list a:hover { text-decoration: none; color: #C81829}
+.link-list a:active { text-decoration: none; color: #C81829}
+
+.active-link {
+    border-left: 2px solid;
+    padding-left: 8px;
+    border-color: black;
+    color: black;
+}
+
+.active-link a {color: black}
+.active-link a:link { color: black }
+.active-link a:visited { color: black }
+.active-link a:hover { color: black }
+.active-link a:active { color: black }
