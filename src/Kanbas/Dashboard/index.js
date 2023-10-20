@@ -22,6 +22,8 @@ function Dashboard() {
   return (
     <div>
       <h1>Dashboard</h1>
+      <hr />
+      <h2> Published Courses (3) </h2>
       <div class="d-flex flex-row flex-wrap">
         {courses.map((course) => (
           <Link

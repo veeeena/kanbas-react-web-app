@@ -14,6 +14,7 @@ function Courses() {
   return (
     <div className="container-fluid">
       <div className="row">
+        <div className="col-12">
           <div className="row">
             <div>
               <PageHeader name={course.name}  number={course.number} date={course.startDate.replaceAll("-", "")}/>
@@ -40,6 +41,7 @@ function Courses() {
                 <Route path="Grades" element={<h1>Grades</h1>} />
               </Routes>
             </div>
+          </div> 
         </div>
       </div>
     </div>
