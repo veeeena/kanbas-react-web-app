@@ -16,11 +16,10 @@ function AssignmentEditor() {
   };
   return (
     <div>
-      <h2>Assignment Name</h2>
-      <pre>
-        <code>{JSON.stringify(params, null, 2)}</code>
-      </pre>
-      <input value={assignment.title} className="form-control mb-2" />
+      <div>
+        <label for="assName" class="form-label"> Assignment Name </label>
+        <input value={assignment.title} className="form-control mb-2" />
+      </div>
       <Link
         to={`/Kanbas/Courses/${courseId}/Assignments`}
         className="btn btn-danger"

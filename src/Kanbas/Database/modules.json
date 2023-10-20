@@ -38,6 +38,18 @@
     "course": "RS101"
   },
   {
+    "_id": "M104",
+    "name": "Why Nozzle Design is Cool",
+    "description": "Cool rocket nozzle design and why it is cool.",
+    "course": "RS101"
+  },
+  {
+    "_id": "M105",
+    "name": "More Rocket Stuff",
+    "description": "Learn more about rockets and their stuff.",
+    "course": "RS101"
+  },
+  {
     "_id": "M201",
     "name": "Fundamentals of Aerodynamics",
     "description": "Basic aerodynamic concepts and fluid dynamics principles.",
@@ -53,6 +65,18 @@
     "_id": "M203",
     "name": "Aerodynamic Heating",
     "description": "Study of aerodynamic heating and thermal protection systems.",
+    "course": "RS102"
+  },
+  {
+    "_id": "M204",
+    "name": "Stuff in the Air",
+    "description": "Study of things that appear in the air sometimes.",
+    "course": "RS102"
+  },
+  {
+    "_id": "M205",
+    "name": "Make Rockets Look Like Birds",
+    "description": "Why don't rockets look like birds? Maybe they should.",
     "course": "RS102"
   },
   {

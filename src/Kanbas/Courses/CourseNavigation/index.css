@@ -1,13 +1,12 @@
 .wd-course-navigation {
-  border-radius: 0px;
+  border-radius: 0 !important;
 }
 .wd-course-navigation a {
   background: white;
-  color: red;
-  border-radius: 0px;
+  color: #C81829;
+  border-radius: 0 !important;
   border: none;
   margin-left: 10px;
-  border-radius: 0px;
 }
 
 .wd-course-navigation a.list-group-item.active {

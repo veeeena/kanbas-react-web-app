@@ -1,17 +1,18 @@
 .wd-kanbas-navigation {
   background: black;
-  border-radius: 0px;
+  border-radius: 0 !important;
   border: none;
+  margin-right: 10px;
 }
 
 .wd-kanbas-navigation a {
   background-color: black;
   color: white;
-  border-radius: 0px;
+  border-radius: 0px !important;
   border: none;
 }
 
 .wd-kanbas-navigation a.active {
   background-color: white;
-  color: red;
+  color: #C81829;
 }
