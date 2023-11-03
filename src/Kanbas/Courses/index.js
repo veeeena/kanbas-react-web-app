@@ -1,4 +1,3 @@
-import db from "../../Kanbas/Database";
 import { useParams } from "react-router-dom";
 import CourseNavigation from "./CourseNavigation";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -7,10 +6,11 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import PageHeader from "../PageHeader/PageHeader";
+import "./index.css";
 
-function Courses() {
+function Courses({courses}) {
   const { courseId } = useParams();
-  const course = db.courses.find((course) => course._id === courseId);
+  const course = courses.find((course) => course._id == courseId);
   return (
     <div className="container-fluid">
       <div className="row">
@@ -23,11 +23,7 @@ function Courses() {
           </div>
           <div>
             <div
-              className="position-fixed bottom-0 end-0"
-              style={{
-                left: "320px",
-                top: "50px",
-              }}
+              className="course-content position-fixed bottom-0 end-0"
             >
               <Routes>
                 <Route path="/" element={<Navigate to="Home" />} />

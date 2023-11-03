@@ -7,8 +7,17 @@ import { IoMdArrowDropdown } from "react-icons/io"
 import { AiOutlinePlus, AiFillCheckCircle } from "react-icons/ai"
 import { IoEllipsisVertical } from "react-icons/io5"
 import { BsPencilSquare } from "react-icons/bs"
+import { useSelector, useDispatch } from "react-redux";
+import {
+  deleteAssignment,
+  setAssignment,
+} from "./assignmentReducer";
+
 
 function Assignment({name}) {
+  const { courseId } = useParams();
+  const assignment = useSelector((state) => state.assignmentReducer.assignment);
+  const dispatch = useDispatch();
   return (
     <div>
       <li class="list-group-item"> 
@@ -20,6 +29,19 @@ function Assignment({name}) {
         <div class="ps-5"><small> 
           <span className="text-danger"> Multiple Modules </span> | 
           <strong> Due</strong> 00-00-00 | 100pts  </small></div>
+          <button type="button" class="btn btn-sm btn-light ms-5 me-1 my-1"
+              onClick={() => dispatch(deleteAssignment(assignment._id))}>
+              Delete
+          </button>
+          <Link
+          key={assignment._id}
+          to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
+          >
+            <button type="button" class="btn btn-sm btn-light my-1"
+              onClick={() => dispatch(setAssignment(assignment))}>
+              Edit
+            </button>
+          </Link>
       </li>
     </div>
   );
@@ -27,10 +49,9 @@ function Assignment({name}) {
 
 function Assignments() {
   const { courseId } = useParams();
-  const assignments = db.assignments;
-  const courseAssignments = assignments.filter(
-    (assignment) => assignment.course === courseId
-  );
+  const assignments = useSelector((state) => state.assignmentReducer.assignments);
+  const assignment = useSelector((state) => state.assignmentReducer.assignment);
+  const dispatch = useDispatch();
   return (
     <div className="me-2">
             <div class="d-flex mb-3">
@@ -39,15 +60,15 @@ function Assignments() {
         </div>
         <div class="py-0">
             <a class="btn btn-secondary" style={{backgroundColor: "lightgray", color: "black"}} href="#" role="button">
-                <i class="fa-solid fa-plus"></i>
+                <AiOutlinePlus className="me-1"/>
                 Group
             </a>
         </div>
         <div class="py-0 ps-1">
-            <a class="btn btn-danger" style={{color: "white"}} href="#" role="button">
-                <i class="fa-solid fa-plus"></i>
+            <Link to={`/Kanbas/Courses/${courseId}/Assignments/${new Date().getTime()}`} class="btn btn-danger" style={{color: "white"}} href="#" role="button">
+                <AiOutlinePlus className="me-1" />
                 Assignment
-            </a>
+            </Link>
         </div>
         <div class="py-0 ps-1"> 
             <a class="btn btn-secondary" style={{backgroundColor: "lightgray", color: "black"}} href="#" role="button">
@@ -69,15 +90,12 @@ function Assignments() {
               <small> 40% of Total </small>
           </div>
         </li>
-        {courseAssignments.map((assignment) => (
-          <Link
-            key={assignment._id}
-            to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
-          >
+        {assignments
+        .filter((assignment) => assignment.course === courseId)
+        .map((module, index) => (
             <div>
               <Assignment name={assignment.title}/>
             </div>
-          </Link>
         ))}
       </div>
     </div>

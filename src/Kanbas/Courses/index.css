@@ -1,0 +1,7 @@
+.course-content {
+    left: 320px;
+    top: 50px;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x:hidden;
+  }

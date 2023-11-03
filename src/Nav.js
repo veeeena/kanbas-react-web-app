@@ -4,10 +4,10 @@ function Nav() {
   return (
     <nav className="nav nav-tabs mt-2">
       <Link
-        to="/Labs/a3"
-        className={`nav-link ${pathname.includes("a3") ? "active" : ""}`}
+        to="/Labs"
+        className={`nav-link ${pathname.includes("labs") ? "active" : ""}`}
       >
-        A3
+        Labs
       </Link>
       <Link
         to="/hello"

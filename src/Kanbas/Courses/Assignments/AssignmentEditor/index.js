@@ -1,30 +1,29 @@
 import React from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import db from "../../../Database";
-import { AiFillCheckCircle } from "react-icons/ai"
+import { AiFillCheckCircle, AiOutlineCalendar } from "react-icons/ai"
 import { IoEllipsisVertical } from "react-icons/io5"
+import "./index.css";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  updateAssignment,
+} from "../assignmentReducer";
 
 function AssignmentEditor() {
   const { assignmentId, courseId } = useParams();
-  const params = useParams();
-  const assignment = db.assignments.find(
-    (assignment) => assignment._id === assignmentId
-  );
+  let assignment = useSelector((state) => state.assignmentReducer.assignment);
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  const handleSave = () => {
-    console.log("Actually saving assignment TBD in later assignments");
-    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-  };
   return (
-    <div class="container-fluid">
+    <div class="container-fluid content">
       <div class="row">
         <div class="d-flex justify-content-end">
-            <div class="p-2">
+            <div class="px-2 pt-0">
                 <AiFillCheckCircle className="text-success me-1" />
                 <div class="header-text text-success"> Published </div>
             </div>
-            <div class="p-1"> 
+            <div class="px-1 pt-0"> 
                 <a class="btn btn-secondary" style={{backgroundColor: "lightgray", color: "black"}} href="#" role="button">
                   <IoEllipsisVertical />                            
                 </a>    
@@ -32,9 +31,41 @@ function AssignmentEditor() {
         </div>
       </div>
       <hr />
-      <div>
-        <label for="assName" class="form-label"> Assignment Name </label>
-        <input value={assignment.title} className="form-control mb-2" />
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+        <input type="text" class="form-control" value={assignment.title}/>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <textarea type="text" class="form-control" value={assignment.description}/>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Points</span>
+        <input type="text" class="form-control" value="100"/>
+      </div>
+      <p class="fs-5 mb-1" id=""> Assign</p>
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Due</span>
+        <input type="text" class="form-control" value={assignment.dueDate}/>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <p class="pb-0 mb-0" id=""> Available From Date</p>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="addon-wrapping">
+              <AiOutlineCalendar />
+            </span>
+            <input type="text" class="form-control" value={assignment.availableFromDate}/>
+          </div>
+        </div>
+        <div class="col-6">
+          <p class="pb-0 mb-0" id=""> Available Until Date</p>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="addon-wrapping">
+              <AiOutlineCalendar />
+            </span>
+            <input type="text" class="form-control" value={assignment.availableUntilDate}/>
+          </div>
+        </div>
       </div>
       <hr />
       <Link
@@ -43,9 +74,11 @@ function AssignmentEditor() {
       >
         Cancel
       </Link>
-      <button onClick={handleSave} className="btn btn-success me-2">
-        Save
-      </button>
+      <Link to={`/Kanbas/Courses/${courseId}/Assignments`}>
+        <button onClick={() => dispatch(updateAssignment({...assignment, course: courseId })) } className="btn btn-success me-2">
+          Save
+        </button>
+      </Link>
     </div>
   );
 }

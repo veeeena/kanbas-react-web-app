@@ -4,6 +4,8 @@ import { BsFillArrowRightCircleFill, BsFillBarChartFill, BsFillMegaphoneFill, Bs
 import {IoMdArrowDropdown} from "react-icons/io";
 import {FaEllipsisV} from "react-icons/fa"
 import {AiOutlinePlus} from "react-icons/ai"
+import { useParams } from "react-router-dom";
+import db from "../../Database";
 
 
 function StatusButton({icon, text}) {
@@ -16,6 +18,18 @@ function StatusButton({icon, text}) {
 }
 
 function Home() {
+  const { courseId } = useParams();
+  const assignments = db.assignments;
+  const courseAssignments = assignments.filter(
+    (assignment) => assignment.course === courseId
+  );
+  let todos = []
+  if (courseAssignments.length >= 2) {
+    todos[0] = courseAssignments[0]
+    todos[1] = courseAssignments[1]
+  } else if (courseAssignments.length == 1) {
+    todos[0] = courseAssignments[0]
+  }
   return (
     <div className="row">
       <div className="col-8">
@@ -63,10 +77,12 @@ function Home() {
                   <i className="fa-solid fa-circle-info text-danger"></i>
               </div>
               <div className="col-11">
-                  <p className="text-danger mb-0"> Grade A1 - rockets </p>
-                  <p className="text-secondary mb-0"> <small>100 Points • Sep 18 at 11:59pm</small> </p>
-                  <p className="text-danger mb-0"> Grade A2 - rockets2 </p>
-                  <p className="text-secondary"> <small>100 Points • Sep 21 at 11:59pm</small> </p>
+                {todos.map((assignment) => (
+                  <div>
+                    <p className="text-danger mb-0"> Grade {assignment.title} </p>
+                  <p className="text-secondary mb-0"> <small>100 Points • Due {assignment.dueDate}</small> </p>
+                  </div>
+                ))}
               </div>
           </div>
         </div>
