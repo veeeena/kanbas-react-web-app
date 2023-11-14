@@ -7,17 +7,30 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import PageHeader from "../PageHeader/PageHeader";
 import "./index.css";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-function Courses({courses}) {
+function Courses() {
   const { courseId } = useParams();
-  const course = courses.find((course) => course._id == courseId);
+  const URL = "http://localhost:4000/api/courses";
+  const [course, setCourse] = useState({});
+  const findCourseById = async (courseId) => {
+    const response = await axios.get(
+      `${URL}/${courseId}`
+    );
+    setCourse(response.data);
+  };
+  useEffect(() => {
+    findCourseById(courseId);
+  }, [courseId]);
+  const date = "" + course.startDate;
   return (
     <div className="container-fluid">
       <div className="row">
         <div className="col-12">
           <div className="row">
             <div>
-              <PageHeader name={course.name}  number={course.number} date={course.startDate.replaceAll("-", "")}/>
+              <PageHeader name={course.name}  number={course.number} date={date.replaceAll("-", "")}/>
               <CourseNavigation/>
             </div>
           </div>
