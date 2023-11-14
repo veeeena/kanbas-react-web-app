@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function WorkingWithObjects() {
     const [assignment, setAssignment] = useState({
@@ -9,14 +10,34 @@ function WorkingWithObjects() {
         completed: false,
         score: 0,
       });
-      const URL = "http://localhost:4000/a5/assignment"
-//      assignment['score'] = assignment.score + 10000;
-      assignment.score += 10000; 
-  return (
+      const URL = "http://localhost:4000/a5/assignment";
+      const fetchAssignment = async () => {
+        const response = await axios.get(`${URL}`);
+        setAssignment(response.data);
+      };
+      const updateTitle = async () => {
+        const response = await axios
+          .get(`${URL}/title/${assignment.title}`);
+        setAssignment(response.data);
+      };
+      useEffect(() => {
+        fetchAssignment();
+      }, []);    
+    
+    return (
     <div> 
-      <p>{assignment.score}</p>
       <h3>Working With Objects</h3>
       <h4>Modifying Properties</h4>
+      <button onClick={updateTitle}
+              className="w-100 btn btn-primary mb-2">
+        Update Title to: {assignment.title}
+      </button>
+      <button onClick={fetchAssignment}
+              className="w-100 btn btn-danger mb-2">
+        Fetch Assignment
+      </button>
+
+      <h5> Extra Credit </h5>
       <a
         href={`${URL}/title/${assignment.title}`}
         className="btn btn-primary me-2 float-end"
@@ -31,8 +52,6 @@ function WorkingWithObjects() {
         className="form-control mb-2 w-75"
         type="text"
       />
-
-
       <a
         href={`${URL}/score/${assignment.score}`}
         className="btn btn-primary me-2 float-end"
