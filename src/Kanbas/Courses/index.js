@@ -24,6 +24,8 @@ function Courses() {
     findCourseById(courseId);
   }, [courseId]);
   const date = "" + course.startDate;
+  console.log(course);
+
   return (
     <div className="container-fluid">
       <div className="row">
