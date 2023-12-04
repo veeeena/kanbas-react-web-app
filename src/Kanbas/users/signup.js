@@ -24,6 +24,7 @@ function Signup() {
           ...credentials,
           username: e.target.value })} />
       <input
+        type="password"
         value={credentials.password}
         onChange={(e) => setCredentials({
           ...credentials,

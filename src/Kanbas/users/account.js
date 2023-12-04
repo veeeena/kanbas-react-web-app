@@ -2,6 +2,8 @@ import * as client from "./client";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Landing from "../Landing"
+
 function Account() {
   const { id } = useParams();
   const [account, setAccount] = useState(null);
@@ -30,8 +32,9 @@ function Account() {
     }
   }, []);
   return (
-    <div className="w-50">
+    <div className="">
       <h1>Account</h1>
+      <Landing />
       {account && (
         <div>
           <input value={account.password}
@@ -58,14 +61,14 @@ function Account() {
             <option value="STUDENT">Student</option>
           </select>
           <div>
-            <button onClick={save}> Save </button>
+            <button className="btn btn-primary my-2 me-2" onClick={save}> Save </button>
           </div>
-          <button onClick={signout}>
-            Signout
+          <button className="btn btn-danger mb-2 me-2" onClick={signout}>
+            Sign Out
           </button>
         </div>
       )}
-      <Link to="/kanbas/admin/users" className="btn btn-warning w-100">
+      <Link to="/kanbas/admin/users" className="btn btn-warning w-100 mt-2">
         Users
       </Link>
     </div>

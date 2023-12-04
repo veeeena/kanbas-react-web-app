@@ -9,10 +9,10 @@ function Landing() {
     }
     return (
         <div>
-          <button onClick={signin} className="btn btn-danger mt-2 me-2">
+          <button onClick={signin} className="btn btn-danger my-2 me-2">
             Sign In
           </button>
-          <button onClick={signup} className="btn btn-danger mt-2 me-2">
+          <button onClick={signup} className="btn btn-danger my-2 me-2">
             Sign Up
           </button>
         </div>
