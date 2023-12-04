@@ -82,7 +82,7 @@ function Account() {
           </div>
           <div className="input-group my-2">
             <span class="input-group-text">Role</span>
-            <select className="form-select\" 
+            <select className="form-select" 
               onChange={(e) => setAccount({ ...account,
                 role: e.target.value })}>
               <option value="none" selected disabled hidden> {account.role} </option>
