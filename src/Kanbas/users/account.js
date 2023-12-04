@@ -22,7 +22,7 @@ function Account() {
   };
   const signout = async () => {
     await client.signout();
-    navigate("/Kanbas/signin");
+    navigate("/Kanbas/Landing");
   };
   useEffect(() => {
     if (id) {
@@ -31,35 +31,67 @@ function Account() {
       fetchAccount();
     }
   }, []);
+  if (!account) {
+    return (
+      <div>
+        <h1>Account</h1>
+        <Landing />
+      </div>
+    )
+  }
   return (
     <div className="">
       <h1>Account</h1>
-      <Landing />
       {account && (
         <div>
-          <input value={account.password}
-            onChange={(e) => setAccount({ ...account,
-              password: e.target.value })}/>
-          <input value={account.firstName}
-            onChange={(e) => setAccount({ ...account,
-              firstName: e.target.value })}/>
-          <input value={account.lastName}
-            onChange={(e) => setAccount({ ...account,
-              lastName: e.target.value })}/>
-          <input value={account.dob}
-            onChange={(e) => setAccount({ ...account,
-              dob: e.target.value })}/>
-          <input value={account.email}
-            onChange={(e) => setAccount({ ...account,
-              email: e.target.value })}/>
-          <select onChange={(e) => setAccount({ ...account,
-              role: e.target.value })}>
-            <option value="none" selected disabled hidden> {account.role} </option>
-            <option value="USER">User</option>
-            <option value="ADMIN">Admin</option>
-            <option value="FACULTY">Faculty</option>
-            <option value="STUDENT">Student</option>
-          </select>
+          <div className="input-group my-2">
+            <span class="input-group-text">Password</span>
+            <input value={account.password}
+              type="text" className="form-control"
+              onChange={(e) => setAccount({ ...account,
+                password: e.target.value })}
+            />
+          </div>
+          <div className="input-group my-2">
+            <span class="input-group-text">First Name</span>
+            <input value={account.firstName}
+              type="text" className="form-control"
+              onChange={(e) => setAccount({ ...account,
+                firstName: e.target.value })}/>
+          </div>
+          <div className="input-group my-2">
+            <span class="input-group-text">Last Name</span>
+            <input value={account.lastName}
+              type="text" className="form-control"
+              onChange={(e) => setAccount({ ...account,
+                lastName: e.target.value })}/>
+          </div>
+          <div className="input-group my-2">
+            <span class="input-group-text">Date of Birth</span>
+            <input value={account.dob}
+              type="text" className="form-control"
+              onChange={(e) => setAccount({ ...account,
+                dob: e.target.value })}/>
+          </div>
+          <div className="input-group my-2">
+            <span class="input-group-text">Email</span>
+            <input value={account.email}
+              type="text" className="form-control"
+              onChange={(e) => setAccount({ ...account,
+                email: e.target.value })}/>                
+          </div>
+          <div className="input-group my-2">
+            <span class="input-group-text">Role</span>
+            <select className="form-select\" 
+              onChange={(e) => setAccount({ ...account,
+                role: e.target.value })}>
+              <option value="none" selected disabled hidden> {account.role} </option>
+              <option value="USER">User</option>
+              <option value="ADMIN">Admin</option>
+              <option value="FACULTY">Faculty</option>
+              <option value="STUDENT">Student</option>
+            </select>
+          </div>
           <div>
             <button className="btn btn-primary my-2 me-2" onClick={save}> Save </button>
           </div>
