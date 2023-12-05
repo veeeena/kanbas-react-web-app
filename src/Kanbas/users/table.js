@@ -4,13 +4,14 @@ import * as client from "./client";
 function UserTable() {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({ username: "", password: "", role: "USER" });
+  const [errorMessage, setErrorMessage] = useState(null);
   const createUser = async () => {
     try {
       const newUser = await client.createUser(user);
       setUsers([newUser, ...users]);
     } catch (err) {
       console.log(err);
-    }
+      setErrorMessage(err.response.data.message);          }
   };
   const deleteUser = async (user) => {
     try {
@@ -44,6 +45,11 @@ function UserTable() {
   return (
     <div>
       <h1>User List</h1>
+      {errorMessage && (
+            <div className="alert alert-danger mb-2 mt-2">
+                {errorMessage}
+            </div>
+      )}
       <table className="table">
         <thead>
           <tr>
