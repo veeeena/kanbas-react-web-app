@@ -9,6 +9,7 @@ function UserTable() {
     try {
       const newUser = await client.createUser(user);
       setUsers([newUser, ...users]);
+      setErrorMessage(null)
     } catch (err) {
       const response = err['response']
       setErrorMessage(response.data.message);
@@ -18,6 +19,7 @@ function UserTable() {
     try {
       await client.deleteUser(user);
       setUsers(users.filter((u) => u._id !== user._id));
+      setErrorMessage(null)
     } catch (err) {
       console.log(err);
     }
@@ -26,6 +28,7 @@ function UserTable() {
     try {
       const u = await client.findUserById(user._id);
       setUser(u);
+      setErrorMessage(null)
     } catch (err) {
       console.log(err);
     }
@@ -34,6 +37,7 @@ function UserTable() {
     try {
       const status = await client.updateUser(user);
       setUsers(users.map((u) => (u._id === user._id ? user : u)));
+      setErrorMessage(null);
     } catch (err) {
       console.log(err);
     }
