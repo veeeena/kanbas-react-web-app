@@ -10,8 +10,9 @@ function UserTable() {
       const newUser = await client.createUser(user);
       setUsers([newUser, ...users]);
     } catch (err) {
-      console.log(err);
-      setErrorMessage(err.response.data.message);          }
+      const response = err['response']
+      setErrorMessage(response.data.message);
+    }
   };
   const deleteUser = async (user) => {
     try {
