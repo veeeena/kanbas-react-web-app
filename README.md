@@ -3,7 +3,7 @@ This project is a recreation of Canvas, a popular learning management system use
 
 The application supports CRUD operations for courses, modules within individual courses, assignments within individual courses, and users.
 
-The website's frontend is also hosted on [Netlify](https://main--coruscating-gumption-a7498b.netlify.app/#/Kanbas).
+The website's frontend is hosted on [Netlify](https://main--coruscating-gumption-a7498b.netlify.app/#/Kanbas).
 
 ## Installation
 ```bash
@@ -17,4 +17,5 @@ npm start
 ```
 
 ## License
+© Veena Kodakirthi (2023)
 [MIT](https://choosealicense.com/licenses/mit/)
